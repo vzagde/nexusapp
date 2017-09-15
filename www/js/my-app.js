@@ -85,6 +85,7 @@ myApp.onPageInit('progress_bar', function (page) {
 })
 
 myApp.onPageInit('tabs', function (page) {
+    alert(load_ui.mall_html);
     $('#tabs_data').empty();
     $('#tabs_data').html(load_ui.mall_html);
 })

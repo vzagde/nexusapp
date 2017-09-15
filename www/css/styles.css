@@ -964,8 +964,8 @@ i{
 }
 
 .map_box{
-	width: 50%;
-	height: 200px;
+	width:100%;
+	height:1000px;
 }
 
 .map_box iframe{
@@ -1273,8 +1273,8 @@ i{
 	}
 	
 	.map_box {
-		width: 50%;
-		height: 200px;
+		width: 100%;
+		height: 1100px;
 	}
 	
 }
@@ -1470,8 +1470,8 @@ i{
 	}
 	
 	.map_box {
-		width: 50%;
-		height: 200px;
+		width: 100%;
+		height: 450px;
 	}
 }
 
@@ -1680,8 +1680,8 @@ i{
 	}
 	
 	.map_box {
-		width: 50%;
-		height: 200px;
+		width: 100%;
+		height: 500px;
 	}
 }
 
