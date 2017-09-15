@@ -9,10 +9,22 @@ function j2s(json) {
 }
 
 function goto_page(page) {
-    mainView.router.load({
-        url: page,
-        ignoreCache: false,
-    });
+    if (page == 'tabs.html') {
+        if (!load_ui) {
+            return false;
+        } else {
+            load_ui = Lockr.get('load_ui');
+            mainView.router.load({
+                url: page,
+                ignoreCache: false,
+            });
+        }
+    } else {
+        mainView.router.load({
+            url: page,
+            ignoreCache: false,
+        });
+    }
 }
 
 // function load_event_data() {
@@ -20,6 +32,7 @@ function goto_page(page) {
 // }
 
 function login(){
+    console.log(Lockr.get('load_ui'));
     var emp_code = $('#emp_code').val();
 
     if (emp_code == '') {
@@ -38,6 +51,7 @@ function login(){
     })
     .done(function(res) {
         myApp.hideIndicator();
+        Lockr.set('login_status', 'status');
         if (res.status == 'SUCCESS') {
             mainView.router.load({
                 url: 'sync.html',
@@ -89,8 +103,9 @@ function download_image(){
                         // $('.p_t1').fadeIn();
                     }
             });
-             // myApp.alert(cordova.file.dataDirectory + 'files/download/'+value.icon);
-              console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
+
+            // myApp.alert(cordova.file.dataDirectory + 'files/download/'+value.icon);
+            console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
             counter_i = counter_i + 1;
             animate_count = animate_count + animate_counter;
             // console.log("Index value: "+index);
@@ -108,6 +123,7 @@ function download_image(){
         })
         .done(function(res) {
             load_ui = res;
+            Lockr.set('load_ui', load_ui);
             // load_location_ui();
         })
         .fail(function(err) {

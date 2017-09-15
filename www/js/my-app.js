@@ -32,6 +32,9 @@ var mainView = myApp.addView('.view-main', {
 });
 
 $$(document).on('deviceready', function() {
+    if (Lockr.get('login_status') == 'status') {
+        goto_page('sync.html');
+    }
     //  var div = document.getElementById("map_box");
     // // Initialize the map view
     // map = plugin.google.maps.Map.getMap(div);
