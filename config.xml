@@ -66,10 +66,10 @@
     <!-- file transfer plugin -->
     <plugin spec="https://github.com/apache/cordova-plugin-file-transfer.git#rel/1.6.2" source="git"/>
     
-    <plugin spec="https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps" source="git">
+    <!-- <plugin spec="https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps" source="git">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDcCYAGNiSoGfpPlTjENM56g7tBJQzHETI" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyDcCYAGNiSoGfpPlTjENM56g7tBJQzHETI" />
-    </plugin>
+    </plugin> -->
 
     <access origin="*" />
     <allow-intent href="http://*/*" />
