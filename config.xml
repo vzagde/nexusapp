@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.kreaserv.nexus" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>NEXUS MALL</name>
+    <name>Kreaserv Test App</name>
     <description>
         Kreaserv Dummy App
     </description>
     <author email="info@kreaserv.com" href="http://kreaserv.com">
-       TONIC WORLDWIDE
+       Kreaserv Media Private Limited
     </author>
     <content src="index.html" />
 
