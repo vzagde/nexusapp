@@ -496,6 +496,10 @@ i{
 	color:#ff4700;
 }
 
+.menu_active i, .menu_active p{
+	color:#ff4700;
+}
+
 .mall_logo_box{
 	width:100%;
 	margin-bottom:2%;
@@ -960,8 +964,8 @@ i{
 }
 
 .map_box{
-	width:100%;
-	height:1000px;
+	width: 50%;
+	height: 200px;
 }
 
 .map_box iframe{
@@ -1269,8 +1273,8 @@ i{
 	}
 	
 	.map_box {
-		width: 100%;
-		height: 1100px;
+		width: 50%;
+		height: 200px;
 	}
 	
 }
@@ -1676,8 +1680,8 @@ i{
 	}
 	
 	.map_box {
-		width: 100%;
-		height: 500px;
+		width: 50%;
+		height: 200px;
 	}
 }
 

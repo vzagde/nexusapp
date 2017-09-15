@@ -1,6 +1,6 @@
 var load_ui = [];
 var threed_src = '';
-var base_url = 'http://kreaserv-tech.com/mall_app/index.php/loader';
+var base_url = 'https://leasing.nexusmalls.com/index.php/loader';
 var myApp = new Framework7({
     pushState: false,
     swipeBackPage: false,
@@ -108,6 +108,8 @@ myApp.onPageInit('mall_facts', function (page) {
     $('.single-item').slick();
 
     $(".click_menu_sub").click(function(){
+        $(".menu_i, .menu_p, .menu_sub").removeClass('menu_active');
+        $(this).addClass('menu_active');
         var data_disp_id = "#"+$(this).data('iddisp');
         $(".hide_all_tabs_page").hide();
         $(data_disp_id).fadeIn();
@@ -370,7 +372,7 @@ myApp.onPageInit('mall_facts', function (page) {
         if (data_disp_id == '#transformation_page_dynamic') {
             $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.7});
             $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({default_offset_pct: 0.3, orientation: 'vertical'});
-            $(".twentytwenty-container").css('height', '657px');
+            $(".twentytwenty-container").css('height', '490px');
             $(".mall_id_floor_hide").hide();
             $(".mall_id_floor_"+mall_id).show();
         }
