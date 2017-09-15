@@ -357,6 +357,24 @@ myApp.onPageInit('mall_facts', function (page) {
             })
         }
 
+        // Walkthrough Section
+        if (data_disp_id == '#walkthrough_page_dynamic') {
+            $(".mall_id_floor_hide").hide();
+            $(".mall_id_floor_"+mall_id).show();
+            var map_id = 'map_canvas'+mall_id;
+            threed_src = $("#"+map_id).data('imgsrc');
+            initialize(map_id);
+        }
+
+        // Transformation Section
+        if (data_disp_id == '#transformation_page_dynamic') {
+            $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.7});
+            $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({default_offset_pct: 0.3, orientation: 'vertical'});
+            $(".twentytwenty-container").css('height', '657px');
+            $(".mall_id_floor_hide").hide();
+            $(".mall_id_floor_"+mall_id).show();
+        }
+
         // Location Section
         if (data_disp_id == '#location_page_dynamic') {
             $(".location_containers_hide").hide();
@@ -384,6 +402,11 @@ myApp.onPageInit('mall_facts', function (page) {
                     mapTypeIds: mapTypeIds,
                     style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
                 }
+            });
+
+            var marker = new google.maps.Marker({
+                position: {lat: 53.902254, lng: 27.561850},
+                map: map,
             });
 
             map.mapTypes.set("OSM", new google.maps.ImageMapType({
@@ -491,3 +514,77 @@ myApp.onPageInit('mall_facts', function (page) {
         }
     })
 })
+
+
+function initialize(mapid) {
+    // Set up Street View and initially set it visible. Register the
+    // custom panorama provider function. Set the StreetView to display
+    // the custom panorama 'reception' which we check for below.
+    $("#" + mapid).css('height', '500px');
+    var panoOptions = {
+        pano: 'reception',
+        visible: true,
+        panoProvider: getCustomPanorama
+    };
+
+    var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById(mapid), panoOptions
+    );
+}
+
+// Return a pano image given the panoID.
+function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
+    // Note: robust custom panorama methods would require tiled pano data.
+    // Here we're just using a single tile, set to the tile size and equal
+    // to the pano "world" size.
+    return threed_src.toString();
+}
+
+// Construct the appropriate StreetViewPanoramaData given
+// the passed pano IDs.
+function getCustomPanorama(pano, zoom, tileX, tileY) {
+    if (pano == 'reception') {
+        return {
+            location: {
+                pano: 'reception',
+                description: 'Nexus Mall'
+            },
+            links: [],
+            // The text for the copyright control.
+            copyright: 'Imagery by Google',
+            // The definition of the tiles for this panorama.
+            tiles: {
+                tileSize: new google.maps.Size(4000, 2000),
+                worldSize: new google.maps.Size(4000, 2000),
+                // The heading in degrees at the origin of the panorama
+                // tile set.
+                centerHeading: 105,
+                getTileUrl: getCustomPanoramaTileUrl
+            }
+        };
+    }
+}
+
+// Map Function
+function CustomControl(controlDiv, map, title, handler) {
+    controlDiv.style.padding = '5px';
+
+    var controlUI = document.createElement('DIV');
+    controlUI.style.backgroundColor = 'white';
+    controlUI.style.borderStyle = 'solid';
+    controlUI.style.borderWidth = '2px';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.textAlign = 'center';
+    controlUI.title = title;
+    controlDiv.appendChild(controlUI);
+
+    var controlText = document.createElement('DIV');
+    controlText.style.fontFamily = 'Arial,sans-serif';
+    controlText.style.fontSize = '12px';
+    controlText.style.paddingLeft = '4px';
+    controlText.style.paddingRight = '4px';
+    controlText.innerHTML = title;
+    controlUI.appendChild(controlText);
+
+    google.maps.event.addDomListener(controlUI, 'click', handler);
+}

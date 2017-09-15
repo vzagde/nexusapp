@@ -1466,8 +1466,8 @@ i{
 	}
 	
 	.map_box {
-		width: 100%;
-		height: 600px;
+		width: 50%;
+		height: 200px;
 	}
 }
 
