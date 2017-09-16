@@ -1,6 +1,6 @@
 var load_ui = [];
 var threed_src = '';
-var base_url = 'http://kreaserv-tech.com/mall_app/index.php/loader';
+var base_url = 'http://leasing.nexusmalls.com/index.php/loader';
 var myApp = new Framework7({
     pushState: false,
     swipeBackPage: false,
@@ -119,9 +119,11 @@ myApp.onPageInit('mall_facts', function (page) {
         $(data_disp_id).fadeIn();
         // Floor Plan Section
         if (data_disp_id == '#floor_plan_page_dynamic') {
+            $(".event_select_sub").removeClass('event_select_active');
+
             $('.single-item').slick('unslick');
             $('.single-item').slick();
-            $(".event_select_sub").click(function(){
+            $(".event_select_sub").click(function() {
                 $(".event_select_sub").removeClass('event_select_active');
                 $(this).addClass('event_select_active');
                 var floor_id = $(this).data('floorid');
@@ -394,11 +396,11 @@ myApp.onPageInit('mall_facts', function (page) {
             $(".location_containers_"+mall_id).show();
 
             var locations = [
-              ['Bondi Beach', -33.890542, 151.274856, 4],
-              ['Coogee Beach', -33.923036, 151.259052, 5],
-              ['Cronulla Beach', -34.028249, 151.157507, 3],
-              ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-              ['Maroubra Beach', -33.950198, 151.259302, 1]
+                ['Bondi Beach', -33.890542, 151.274856, 4],
+                ['Coogee Beach', -33.923036, 151.259052, 5],
+                ['Cronulla Beach', -34.028249, 151.157507, 3],
+                ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+                ['Maroubra Beach', -33.950198, 151.259302, 1]
             ];
 
             var map = new google.maps.Map(document.getElementById('map_container1'), {

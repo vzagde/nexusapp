@@ -1,4 +1,4 @@
-var base_url = 'http://kreaserv-tech.com/mall_app/index.php/loader';
+var base_url = 'http://leasing.nexusmalls.com/index.php/loader';
 var mall_id = 0;
 var event_id = 0;
 var store_category_id = 0;
@@ -89,7 +89,7 @@ function download_image(){
             // console.log(cordova.file.externalApplicationStorageDirectory);
             $('.bar_fill').animate({"width":+animate_count+"%"});
             var fileTransfer = new FileTransfer();
-            var uri = encodeURI("http://kreaserv-tech.com/mall_app/assets/app_assets/images/"+value.icon);
+            var uri = encodeURI("http://leasing.nexusmalls.com/assets/app_assets/images/"+value.icon);
 
             fileTransfer.download(
                 uri,
