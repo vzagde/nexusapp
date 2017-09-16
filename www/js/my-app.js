@@ -119,10 +119,11 @@ myApp.onPageInit('mall_facts', function (page) {
         $(data_disp_id).fadeIn();
         // Floor Plan Section
         if (data_disp_id == '#floor_plan_page_dynamic') {
-            $(".event_select_sub").removeClass('event_select_active');
 
-            $('.single-item').slick('unslick');
-            $('.single-item').slick();
+            $(".slider_box_floor_mall_"+mall_id).fadeIn();
+
+            // $('.single-item').slick('unslick');
+            // $('.single-item').slick();
             $(".event_select_sub").click(function() {
                 $(".event_select_sub").removeClass('event_select_active');
                 $(this).addClass('event_select_active');

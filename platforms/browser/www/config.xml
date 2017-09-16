@@ -6,12 +6,12 @@
     <feature name="Camera">
         <param name="browser-package" value="Camera" />
     </feature>
-    <name>Kreaserv Test App</name>
+    <name>NEXUL MALL</name>
     <description>
-        Kreaserv Dummy App
+        NEXUS MALL Application to showcase all the details of all the mall of NEXUS.
     </description>
     <author email="info@kreaserv.com" href="http://kreaserv.com">
-       Kreaserv Media Private Limited
+       Tonic Media Worldwide
     </author>
     <content src="index.html" />
     <gap:plugin name="cordova-plugin-social-message" source="npm" />
@@ -42,7 +42,7 @@
     <allow-intent href="geo:*" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <preference name="fullscreen" value="false" />
+    <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     <preference name="orientation" value="landscape" />
 </widget>

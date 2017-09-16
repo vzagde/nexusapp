@@ -550,7 +550,7 @@ i{
 	width:56%;
 	background:#ef4300;
 	float:left;
-	padding:4% 2%;
+	padding:1% 2%;
 }
 
 .f2{
@@ -565,6 +565,7 @@ i{
 	color:#fff;
 	font-size:34px;
 	text-align:left;
+	letter-spacing: 1px;
 }
 
 .fact_text1{
@@ -577,7 +578,7 @@ i{
 
 .fact_img{
 	margin-right:2%;
-	margin-bottom: -14px;
+	margin-bottom: -10px;
 }
 
 .amenities_box{
@@ -594,7 +595,7 @@ i{
 }
 
 .amenities_sub{
-	width:22%;
+	width:30%;
 	height:120px;
 	border:3px solid #121212;
 	margin:1%;
@@ -920,6 +921,10 @@ i{
 .slider_box{
 	width:90%;
 	margin:0 auto;
+}
+
+.slider_box > img {
+	border: 5px solid #1c1c1c;
 }
 
 .slider-nav{
@@ -1335,6 +1340,10 @@ i{
 
 @media only screen and (min-width:1026px) and (max-width:1367px) {
 
+	.f1 {
+		padding: 4% 2%;
+	}
+
 	.enter_text{
 		font-size:70px;
 	}
@@ -1378,7 +1387,7 @@ i{
 	}
 	
 	.fact_img{
-		width:22%;
+		width:15%;
 	}
 	
 	.fact_text{
@@ -1585,7 +1594,7 @@ i{
 	}
 	
 	.fact_text{
-		font-size:20px;
+		font-size:16px;
 		margin-bottom:7px;
 	}
 	
@@ -1605,7 +1614,7 @@ i{
 	}
 	
 	.amenities_sub {
-		width: 21%;
+		width: 30%;
 		height: 70px;
 		margin: 1%;
 	}
