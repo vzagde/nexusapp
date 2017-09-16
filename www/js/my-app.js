@@ -1,6 +1,6 @@
 var load_ui = [];
 var threed_src = '';
-var base_url = 'https://leasing.nexusmalls.com/index.php/loader';
+var base_url = 'http://kreaserv-tech.com/mall_app/index.php/loader';
 var myApp = new Framework7({
     pushState: false,
     swipeBackPage: false,
@@ -139,7 +139,9 @@ myApp.onPageInit('mall_facts', function (page) {
         if (data_disp_id == '#anchors_page_dynamic') {
             $(".mall_id_hide").hide();
             $(".mall_id_"+mall_id).show();
+
             $(".anchores_filter_data").click(function(){
+                console.log('data entered');
                 var selected_floor_id = $("#anchors_floor_drop").val();
                 var selected_name_id = $("#anchors_name_drop").val();
                 $(".anchors_inner_sub").hide();
@@ -266,6 +268,7 @@ myApp.onPageInit('mall_facts', function (page) {
             $('.slider-nav').slick({
                 slidesToShow: 5,
                 slidesToScroll: 1,
+				arrows:true,
                 asNavFor: '.slider-for',
                 dots: false,
                 centerMode: true,
@@ -374,9 +377,13 @@ myApp.onPageInit('mall_facts', function (page) {
 
         // Transformation Section
         if (data_disp_id == '#transformation_page_dynamic') {
+            $("#transformation_page_dynamic").empty();
+            $("#transformation_page_dynamic").html(load_ui.transformation_html);
+            $(".mall_id_hide").hide();
+            $(".mall_id_"+mall_id).show();
             $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.7});
             $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({default_offset_pct: 0.3, orientation: 'vertical'});
-            $(".twentytwenty-container").css('height', '490px');
+            $(".twentytwenty-container").css('height', $(".twentytwenty-container img").height());
             $(".mall_id_floor_hide").hide();
             $(".mall_id_floor_"+mall_id).show();
         }
@@ -386,7 +393,7 @@ myApp.onPageInit('mall_facts', function (page) {
             $(".location_containers_hide").hide();
             $(".location_containers_"+mall_id).show();
 
-            var element = document.getElementById("map_container1");
+            var element = document.getElementById("map_container"+mall_id);
 
             var mapTypeIds = [];
             for(var type in google.maps.MapTypeId) {
@@ -401,7 +408,7 @@ myApp.onPageInit('mall_facts', function (page) {
             mapTypeIds.push("WebStorageMyGmap");
 
             var map = new google.maps.Map(element, {
-                center: new google.maps.LatLng(53.902254, 27.561850),
+                center: new google.maps.LatLng($("#map_container"+mall_id).data('lang'), $("#map_container"+mall_id).data('long')),
                 zoom: 15,
                 mapTypeId: "MyGmap",
                 mapTypeControlOptions: {
@@ -411,7 +418,7 @@ myApp.onPageInit('mall_facts', function (page) {
             });
 
             var marker = new google.maps.Marker({
-                position: {lat: 53.902254, lng: 27.561850},
+                position: {lat: $("#map_container"+mall_id).data('lang'), lng: $("#map_container"+mall_id).data('long')},
                 map: map,
             });
 
@@ -526,7 +533,7 @@ function initialize(mapid) {
     // Set up Street View and initially set it visible. Register the
     // custom panorama provider function. Set the StreetView to display
     // the custom panorama 'reception' which we check for below.
-    $("#" + mapid).css('height', '500px');
+    $("#" + mapid).css('height', $(".page-content").height()/2);
     var panoOptions = {
         pano: 'reception',
         visible: true,

@@ -23,11 +23,11 @@
     line-height: 0;
 
     position: absolute;
-    top: 55%;
+    top: 110%;
 
     display: block;
 
-    width: 45px;
+    width: 100px;
     height: 45px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
@@ -89,11 +89,13 @@
 }
 .slick-prev:before
 {
-    content: '←';
+    /* content: '←'; */
+    content: url(../images/left-arrow.png);
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: '→';
+    /* content: '→'; */
+	 content: url(../images/right-arrow.png);
 }
 
 .slick-next
@@ -107,11 +109,13 @@
 }
 .slick-next:before
 {
-    content: '→';
+    /* content: '→'; */
+	 content: url(../images/right-arrow.png);
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '←';
+    /* content: '←'; */
+	 content: url(../images/left-arrow.png);
 }
 
 /* Dots */
