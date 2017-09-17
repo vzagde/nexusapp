@@ -148,9 +148,8 @@ myApp.onPageInit('mall_facts', function (page) {
             $(".mall_id_"+mall_id).show();
 
             $(".anchores_filter_data").click(function(){
-                console.log('data entered');
-                var selected_floor_id = $("#anchors_floor_drop").val();
-                var selected_name_id = $("#anchors_name_drop").val();
+                var selected_floor_id = $("#anchors_floor_drop"+mall_id).val();
+                var selected_name_id = $("#anchors_name_drop"+mall_id).val();
                 $(".anchors_inner_sub").hide();
                 var categories = $(".anchors_inner_sub");
 
@@ -160,7 +159,7 @@ myApp.onPageInit('mall_facts', function (page) {
                     var mall_id_filter = $(this).data('mallid');
 
                     if (name_filter) {
-                        var name_split = name_filter.toString().split();
+                        var name_split = name_filter.toString().split(",");
                         if (name_split.indexOf(selected_name_id) !== -1 && mall_id_filter == mall_id) {
                             $(this).show();
                         }
@@ -181,9 +180,9 @@ myApp.onPageInit('mall_facts', function (page) {
             $(".mall_id_hide").hide();
             $(".mall_id_"+mall_id).show();
             $(".stores_filter_data").click(function(){
-                var selected_category_id = $("#stores_category_drop").val();
-                var selected_floor_id = $("#stores_floor_drop").val();
-                var selected_name_id = $("#stores_name_drop").val();
+                var selected_category_id = $("#stores_category_drop"+mall_id).val();
+                var selected_floor_id = $("#stores_floor_drop"+mall_id).val();
+                var selected_name_id = $("#stores_name_drop"+mall_id).val();
                 $(".store_sub").hide();
                 var categories = $(".store_sub");
 
@@ -193,15 +192,12 @@ myApp.onPageInit('mall_facts', function (page) {
                     var name_filter = $(this).data('storeid');
                     var mall_id_filter = $(this).data('mallid');
 
-                    console.log(name_filter);
-                    console.log(mall_id_filter);
-
                     if (category_filter == selected_category_id && mall_id_filter == mall_id) {
                         $(this).show();
                     }
 
                     if (name_filter) {
-                        var name_split = name_filter.toString().split();
+                        var name_split = name_filter.toString().split(",");
                         if (name_split.indexOf(selected_name_id) !== -1 && mall_id_filter == mall_id) {
                             $(this).show();
                         }
@@ -228,9 +224,9 @@ myApp.onPageInit('mall_facts', function (page) {
                     $(".store_mall_id_"+mall_id+store_category_id).show();
 
                     $(".stores_categories_filter_data").click(function(){
-                        var selected_category_id = $("#stores_category_drop").val();
-                        var selected_floor_id = $("#stores_floor_drop").val();
-                        var selected_name_id = $("#stores_name_drop").val();
+                        var selected_category_id = $("#stores_inner_category_drop"+mall_id).val();
+                        var selected_floor_id = $("#stores_inner_floor_drop"+mall_id).val();
+                        var selected_name_id = $("#stores_inner_name_drop"+mall_id).val();
                         $(".store_inner_sub").hide();
                         var categories = $(".store_inner_sub");
 
@@ -240,8 +236,6 @@ myApp.onPageInit('mall_facts', function (page) {
                             var name_filter = $(this).data('storeid');
                             var mall_id_filter = $(this).data('mallid');
 
-                            console.log(name_filter);
-                            console.log(mall_id_filter);
 
                             if (category_filter == selected_category_id && mall_id_filter == mall_id) {
                                 $(this).show();

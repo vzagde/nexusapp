@@ -28,7 +28,6 @@ function goto_page(page) {
 }
 
 function login(){
-    console.log(Lockr.get('load_ui'));
     var emp_code = $('#emp_code').val();
 
     if (emp_code == '') {
