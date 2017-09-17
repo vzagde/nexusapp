@@ -6,11 +6,11 @@
     <feature name="Camera">
         <param name="browser-package" value="Camera" />
     </feature>
-    <name>NEXUL MALL</name>
+    <name>NEXUS LEASING APP</name>
     <description>
         NEXUS MALL Application to showcase all the details of all the mall of NEXUS.
     </description>
-    <author email="info@kreaserv.com" href="http://kreaserv.com">
+    <author email="vishal@kreaserv.com" href="http://www.nexusmalls.com/">
        Tonic Media Worldwide
     </author>
     <content src="index.html" />
