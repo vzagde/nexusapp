@@ -189,6 +189,9 @@ myApp.onPageInit('mall_facts', function (page) {
                     var name_filter = $(this).data('storeid');
                     var mall_id_filter = $(this).data('mallid');
 
+                    console.log(name_filter);
+                    console.log(mall_id_filter);
+
                     if (category_filter == selected_category_id && mall_id_filter == mall_id) {
                         $(this).show();
                     }
@@ -232,6 +235,9 @@ myApp.onPageInit('mall_facts', function (page) {
                             var floor_filter = $(this).data('floorid');
                             var name_filter = $(this).data('storeid');
                             var mall_id_filter = $(this).data('mallid');
+
+                            console.log(name_filter);
+                            console.log(mall_id_filter);
 
                             if (category_filter == selected_category_id && mall_id_filter == mall_id) {
                                 $(this).show();

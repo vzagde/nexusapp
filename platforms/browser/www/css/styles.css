@@ -668,6 +668,7 @@ i{
     float: left;
     background: #ed4200;
     padding: 0 2%;
+    height: 400px;
 }
 
 .box_img{
@@ -694,6 +695,10 @@ i{
     float: left;
     background: #ed4200;
     padding:1%;
+}
+
+.store_inner_sub_addcls {
+    height: 325px;
 }
 
 .store_inner_text_box{
@@ -1130,6 +1135,15 @@ i{
 
 @media only screen and (min-width:2100px) and (max-width:2740px) {
 
+	.store_sub {
+		height: 400px;
+	}
+
+	.store_inner_sub_addcls {
+	    height: 325px;
+	}
+
+
 	.enter_text{
 		font-size:160px;
 	}
@@ -1340,6 +1354,14 @@ i{
 
 @media only screen and (min-width:1026px) and (max-width:1367px) {
 
+	.store_sub {
+		height: 290px;
+	}
+
+	.store_inner_sub_addcls {
+	    height: 275px;
+	}
+
 	.f1 {
 		padding: 4% 2%;
 	}
@@ -1538,6 +1560,14 @@ i{
 
 
 @media only screen and (min-width:768px) and (max-width:1025px) {
+
+	.store_sub {
+		height: 220px;
+	}
+
+	.store_inner_sub_addcls {
+	    height: 205px;
+	}
 
 	.enter_text{
 		font-size:60px;
