@@ -79,8 +79,8 @@ function download_image(){
     })
     .done(function(res) {
         $('.bar_fill').animate({"width":"100%"});
-        myApp.hideIndicator();
-        myApp.alert('Activating Download Process');
+        // myApp.hideIndicator();
+        // myApp.alert('Activating Download Process');
         var counter_i = 1;
         var arr_length = Number(res.download_images.length) - 1;
         var animate_count = 100/Number(res.download_images.length);
@@ -124,6 +124,8 @@ function download_image(){
         .done(function(res) {
             load_ui = res;
             Lockr.set('load_ui', load_ui);
+            $('.progress_text').text('THANK YOU FOR DOWNLOADING ');
+            $('.p_t1').fadeIn();
             // load_location_ui();
         })
         .fail(function(err) {
@@ -133,8 +135,6 @@ function download_image(){
         .always(function() {
             myApp.hideIndicator();
         });
-        $('.progress_text').text('THANK YOU FOR DOWNLOADING ');
-        $('.p_t1').fadeIn();
         // myApp.alert('Download Process Completed');
     })
     .fail(function(err) {

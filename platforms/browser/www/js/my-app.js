@@ -122,6 +122,10 @@ myApp.onPageInit('mall_facts', function (page) {
 
             $(".slider_box_floor_mall_"+mall_id).fadeIn();
 
+            $(".click_to_zoom").click(function(){
+                $("#imgFloorPlan").attr('src', $(this).attr("src"));
+                $("#myFloorPlanModal").fadeIn();
+            })
             // $('.single-item').slick('unslick');
             // $('.single-item').slick();
             $(".event_select_sub").click(function() {
@@ -402,39 +406,42 @@ myApp.onPageInit('mall_facts', function (page) {
             $(".location_containers_hide").hide();
             $(".location_containers_"+mall_id).show();
 
-            var locations = [
-                ['Bondi Beach', -33.890542, 151.274856, 4],
-                ['Coogee Beach', -33.923036, 151.259052, 5],
-                ['Cronulla Beach', -34.028249, 151.157507, 3],
-                ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-                ['Maroubra Beach', -33.950198, 151.259302, 1]
-            ];
+            $(".click_to_zoom").click(function(){
+                $("#imgFloorPlan").attr('src', $(this).attr("src"));
+                $("#myFloorPlanModal").fadeIn();
+            })
 
-            var map = new google.maps.Map(document.getElementById('map_container1'), {
-              zoom: 10,
-              center: new google.maps.LatLng(-33.92, 151.25),
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
+            // var locations = [
+            //     ['Bondi Beach', -33.890542, 151.274856, 4],
+            //     ['Coogee Beach', -33.923036, 151.259052, 5],
+            //     ['Cronulla Beach', -34.028249, 151.157507, 3],
+            //     ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+            //     ['Maroubra Beach', -33.950198, 151.259302, 1]
+            // ];
 
-            var infowindow = new google.maps.InfoWindow();
+            // var map = new google.maps.Map(document.getElementById('map_container1'), {
+            //   zoom: 10,
+            //   center: new google.maps.LatLng(-33.92, 151.25),
+            //   mapTypeId: google.maps.MapTypeId.ROADMAP
+            // });
 
-            var marker, i;
+            // var infowindow = new google.maps.InfoWindow();
 
-            for (i = 0; i < locations.length; i++) {  
-              marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                map: map
-              });
+            // var marker, i;
 
-              google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                  infowindow.setContent(locations[i][0]);
-                  infowindow.open(map, marker);
-                }
-              })(marker, i));
-            }
+            // for (i = 0; i < locations.length; i++) {  
+            //   marker = new google.maps.Marker({
+            //     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            //     map: map
+            //   });
 
-
+            //   google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            //     return function() {
+            //       infowindow.setContent(locations[i][0]);
+            //       infowindow.open(map, marker);
+            //     }
+            //   })(marker, i));
+            // }
 
             // var element = document.getElementById("map_container"+mall_id);
 
