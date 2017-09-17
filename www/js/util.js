@@ -27,10 +27,6 @@ function goto_page(page) {
     }
 }
 
-// function load_event_data() {
-// 	$('#events_html').empty();
-// }
-
 function login(){
     console.log(Lockr.get('load_ui'));
     var emp_code = $('#emp_code').val();
@@ -69,7 +65,7 @@ function login(){
 }
 
 function download_image(){
-    // myApp.showIndicator();
+    myApp.showIndicator();
     $('.login_box').hide();
     $('.progress_box').show();
     $.ajax({
@@ -86,17 +82,14 @@ function download_image(){
         var animate_count = 100/Number(res.download_images.length);
         var animate_counter = animate_count;
         $.each(res.download_images, function( index, value ) {
-            // console.log(cordova.file.externalApplicationStorageDirectory);
             $('.bar_fill').animate({"width":+animate_count+"%"});
             var fileTransfer = new FileTransfer();
             var uri = encodeURI("http://leasing.nexusmalls.com/assets/app_assets/images/"+value.icon);
 
             fileTransfer.download(
                 uri,
-                // cordova.file.externalApplicationStorageDirectory + 'files/download/'+value.icon,
                 cordova.file.dataDirectory + 'files/download/'+value.icon,
                 function(entry) {
-                    // myApp.alert('File ('+counter_i+') Download Completed');
                     var fileTransfer = new FileTransfer();
                     if (arr_length == counter_i) {
                         // $('.progress_text').text('THANK YOU FOR DOWNLOADING ');
@@ -104,7 +97,6 @@ function download_image(){
                     }
             });
 
-            // myApp.alert(cordova.file.dataDirectory + 'files/download/'+value.icon);
             console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
             counter_i = counter_i + 1;
             animate_count = animate_count + animate_counter;
@@ -135,7 +127,6 @@ function download_image(){
         .always(function() {
             myApp.hideIndicator();
         });
-        // myApp.alert('Download Process Completed');
     })
     .fail(function(err) {
         myApp.hideIndicator();
@@ -162,12 +153,11 @@ function load_stores_inner(id) {
 }
 
 function logout(){
-
+    Lockr.flush();
     mainView.router.load({
         url: 'index.html',
         ignoreCache: false,
     });
-
 }
 
 function load_location_ui() {
@@ -178,6 +168,4 @@ function load_location_ui() {
         },
         ignoreCache: false,
     });
-    // $("#location_container").empty();
-    // $("#location_container").html(load_ui.location_html);
 }
