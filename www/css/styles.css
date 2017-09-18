@@ -920,7 +920,7 @@ i{
 	font-size:30px;
 	color:#1c1c1b;
 	text-align:left;
-	margin-top:3%;
+	margin-top:7%;
 	line-height:50px;
 }
 
@@ -1226,6 +1226,23 @@ i{
 
 .border_black_img {
 	border: 10px solid #000;
+}
+
+.burger_icon{
+	width:2%;
+	position:absolute;
+	top:3%;
+	right:2%;
+}
+
+.event_inner_slider{
+	width:100%;
+}
+
+.eventadd_width {
+	/*width: 50%;
+	float: left;*/
+	clear:both;
 }
 
 input,select {

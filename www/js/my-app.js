@@ -84,6 +84,14 @@ myApp.onPageInit('progress_bar', function (page) {
     // $('.bar_fill').animate({"width":"100%"}, 5000);
 })
 
+myApp.onPageInit('event_inner', function (page) {
+    // $('.event_inner_slider').slick({
+    //   infinite: true,
+    //   arrows: false,
+    //   dots: false
+    // });
+})
+
 myApp.onPageInit('tabs', function (page) {
     // alert(load_ui.mall_html);
     $('#tabs_data').empty();
@@ -109,7 +117,7 @@ myApp.onPageInit('mall_facts', function (page) {
     $(".mall_id_floor_"+mall_id).show();
     $(".slider_box_floor_1").show();
 
-    $('.single-item').slick();
+    $('.single-item, .event_inner_slider').slick();
 
     $(".click_menu_sub").click(function(){
         $(".menu_i, .menu_p, .menu_sub").removeClass('menu_active');
@@ -290,11 +298,13 @@ myApp.onPageInit('mall_facts', function (page) {
             $(".display_mallid"+mall_id).show();
             $(".event_sub").hide();
             var events = $(".event_sub");
+
             $(events).each(function(){
                 var startdate = new Date($(this).data('startdate'));
                 var enddate = new Date($(this).data('enddate'));
                 var cur_date = new Date();
-                if(startdate <= cur_date && enddate >= cur_date){
+                var mallid_filter = $(this).data('mallid');
+                if(startdate <= cur_date && enddate >= cur_date && mallid_filter == mall_id){
                     $(this).show();
                 }
             })
@@ -311,7 +321,8 @@ myApp.onPageInit('mall_facts', function (page) {
                         var startdate = new Date($(this).data('startdate'));
                         var enddate = new Date($(this).data('enddate'));
                         var cur_date = new Date();
-                        if(startdate <= cur_date && enddate >= cur_date){
+                        var mallid_filter = $(this).data('mallid');
+                        if(startdate <= cur_date && enddate >= cur_date && mallid_filter == mall_id){
                             $(this).show();
                         }
                     })
@@ -323,7 +334,8 @@ myApp.onPageInit('mall_facts', function (page) {
                         var startdate = new Date($(this).data('startdate'));
                         var enddate = new Date($(this).data('enddate'));
                         var cur_date = new Date();
-                        if(startdate >= cur_date && enddate >= cur_date){
+                        var mallid_filter = $(this).data('mallid');
+                        if(startdate >= cur_date && enddate >= cur_date && mallid_filter == mall_id){
                             $(this).show();
                         }
                     })
@@ -334,7 +346,8 @@ myApp.onPageInit('mall_facts', function (page) {
                         var startdate = new Date($(this).data('startdate'));
                         var enddate = new Date($(this).data('enddate'));
                         var cur_date = new Date();
-                        if(startdate <= cur_date && enddate <= cur_date){
+                        var mallid_filter = $(this).data('mallid');
+                        if(startdate <= cur_date && enddate <= cur_date && mallid_filter == mall_id){
                             $(this).show();
                         }
                     })
@@ -346,13 +359,21 @@ myApp.onPageInit('mall_facts', function (page) {
             $(".load_event_details_page").click(function(){
                 var data_disp_id = "#event_inner_page_dynamic";
                 $(".hide_all_tabs_page").hide();
-                $(data_disp_id).fadeIn();
+                $(data_disp_id).show();
                 // Events Inner Section
                 if (data_disp_id == '#event_inner_page_dynamic') {
                     // eventid
+                    $('.event_inner_slider').slick('unslick');
                     event_id = $(this).data('eventid');
                     $(".event_sec_hide").hide();
                     $(".event_sec_"+event_id).show();
+
+                    $('.event_inner_slider').slick({
+                        infinite: true,
+                        arrows: true,
+                        dots: false
+                    });
+
                     var cur_date = new Date();
 
                     if(start_date_test <= cur_date && end_date_test >= cur_date){
