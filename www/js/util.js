@@ -71,7 +71,7 @@ function download_image(){
     $('.login_box').hide();
     $('.progress_box').show();
     $.ajax({
-        url: base_url + '/laod_image',
+        url: base_url + '/laod_image_test',
         type: 'POST',
         crossDomain: true,
     })
@@ -83,26 +83,39 @@ function download_image(){
         var arr_length = Number(res.download_images.length) - 1;
         var animate_count = 100/Number(res.download_images.length);
         var animate_counter = animate_count;
-        $.each(res.download_images, function( index, value ) {
+        $.each(res.download_images, function(index, value) {
+            $(".bar_fill").css("width", "100%")
             $('.bar_fill').animate({"width":+animate_count+"%"});
-            $('.heart').animate({"margin-left":+(Number(animate_count)-2)+"%"});
-            // $(".bar_fill").css("width", "100%")
-            // $('.bar_fill').animate({"width":+animate_count+"%"});
-            var fileTransfer = new FileTransfer();
-            var uri = encodeURI("http://leasing.nexusmalls.com/assets/app_assets/images/"+value.icon);
+            $.each(value, function(i, v) {
+                var fileTransfer = new FileTransfer();
+                var uri = encodeURI("http://leasing.nexusmalls.com/assets/app_assets/images/"+v.icon);
+                console.log(v.icon);
+                fileTransfer.download(
+                    uri,
+                    cordova.file.dataDirectory+'files/download/'+v.icon,
+                    function(entry) {
+                        // var fileTransfer = new FileTransfer();
+                        // $('.bar_fill').animate({"width":+animate_count+"%"});
+                        // $('.heart').animate({"margin-left":+(Number(animate_count)-2)+"%"});
+                });
+            })
+            // fileTransfer.download(
+            //     uri,
+            //     cordova.file.dataDirectory+'files/download/'+value.icon,
+            //     function(entry) {
+            //         // $.each(entry, function(index, value){
+            //         //     console.log(value);
+            //         // })
+            //         var fileTransfer = new FileTransfer();
+            //         $('.bar_fill').animate({"width":+animate_count+"%"});
+            //         $('.heart').animate({"margin-left":+(Number(animate_count)-2)+"%"});
+            //         // if (arr_length == counter_i) {
+            //         //     // $('.progress_text').text('THANK YOU FOR DOWNLOADING ');
+            //         //     // $('.p_t1').fadeIn();
+            //         // }
+            // });
 
-            fileTransfer.download(
-                uri,
-                cordova.file.dataDirectory + 'files/download/'+value.icon,
-                function(entry) {
-                    var fileTransfer = new FileTransfer();
-                    if (arr_length == counter_i) {
-                        // $('.progress_text').text('THANK YOU FOR DOWNLOADING ');
-                        // $('.p_t1').fadeIn();
-                    }
-            });
-
-            console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
+            // console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
             counter_i = counter_i + 1;
             animate_count = animate_count + animate_counter;
             // console.log("Index value: "+index);
