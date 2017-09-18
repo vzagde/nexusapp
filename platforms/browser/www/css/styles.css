@@ -713,7 +713,7 @@ i{
 }
 
 .store_inner_sub_addcls {
-    height: 325px;
+    height: 380px;
 }
 
 .store_inner_text_box{
@@ -726,6 +726,7 @@ i{
 	font-family: 'proxima_nova_rgregular';
     font-size: 30px;
     color: #fff;
+    margin-bottom: 5%;
 }
 
 .store_flt_lft{
@@ -1119,7 +1120,7 @@ i{
 .location_address_box {
     position: absolute;
     width: 20%;
-    bottom: 27%;
+    bottom: 17%;
     right: 9%;
     z-index: 2;
 }
@@ -1267,7 +1268,7 @@ input,select {
 	}
 
 	.store_inner_sub_addcls {
-	    height: 325px;
+	    height: 380px;
 	}
 
 
@@ -1458,7 +1459,7 @@ input,select {
 	}
 	
 	.location_address_box {
-		bottom: 22%;
+		bottom: 12%;
 	}
 	
 	.location_text1{
@@ -1486,7 +1487,7 @@ input,select {
 	}
 
 	.store_inner_sub_addcls {
-	    height: 275px;
+	    height: 320px;
 	}
 
 	.f1 {
@@ -1667,7 +1668,7 @@ input,select {
 	}
 	
 	.location_address_box {
-		bottom: 22%;
+		bottom: 12%;
 	}
 	
 	.location_text1{
@@ -1693,7 +1694,7 @@ input,select {
 	}
 
 	.store_inner_sub_addcls {
-	    height: 205px;
+	    height: 240px;
 	}
 
 	.enter_text{
@@ -1826,15 +1827,15 @@ input,select {
 		margin: 1.5%;
 		width:22%;
 	}
-	
+
 	.store_inner_text{
 		font-size:18px;
 	}
-	
+
 	.store_inner_text_box {
 		margin: 10% 0 4% 0;
 	}
-	
+
 	.store_text {
 		font-size: 18px;
 		margin-top: 10%;
@@ -1906,7 +1907,7 @@ input,select {
 	}
 	
 	.location_address_box{
-		bottom:25%;
+		bottom:15%;
 	}
 	
 }
