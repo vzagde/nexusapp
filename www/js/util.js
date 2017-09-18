@@ -35,7 +35,7 @@ function login(){
         return false;
     }
 
-    myApp.showIndicator();
+    // myApp.showIndicator();
     $.ajax({
         url: base_url + '/login_user',
         type: 'POST',
@@ -53,7 +53,7 @@ function login(){
                 ignoreCache: false,
              });
         } else {
-            myApp.alert('Employee Code is incorrect');
+            myApp.alert('Invalid Employee Code');
         }
     })
     .fail(function(err) {
@@ -64,7 +64,10 @@ function login(){
 }
 
 function download_image(){
-    myApp.showIndicator();
+    $('.box_height').animate({
+        "height": "100%"
+    }, 1000);
+    // myApp.showIndicator();
     $('.login_box').hide();
     $('.progress_box').show();
     $.ajax({
@@ -82,6 +85,9 @@ function download_image(){
         var animate_counter = animate_count;
         $.each(res.download_images, function( index, value ) {
             $('.bar_fill').animate({"width":+animate_count+"%"});
+            $('.heart').animate({"margin-left":+(Number(animate_count)-2)+"%"});
+            // $(".bar_fill").css("width", "100%")
+            // $('.bar_fill').animate({"width":+animate_count+"%"});
             var fileTransfer = new FileTransfer();
             var uri = encodeURI("http://leasing.nexusmalls.com/assets/app_assets/images/"+value.icon);
 
@@ -96,14 +102,16 @@ function download_image(){
                     }
             });
 
-            console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
+            // console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
             counter_i = counter_i + 1;
             animate_count = animate_count + animate_counter;
             // console.log("Index value: "+index);
             // console.log("Array Lenght: "+arr_length);
         })
+
+
         var send_url = cordova.file.dataDirectory + 'files/download/';
-        myApp.showIndicator();
+        // myApp.showIndicator();
         $.ajax({
             url: base_url+"/load_ui",
             type: 'POST',
@@ -113,10 +121,10 @@ function download_image(){
             }
         })
         .done(function(res) {
-            load_ui = res;
-            Lockr.set('load_ui', load_ui);
             $('.progress_text').text('THANK YOU FOR DOWNLOADING ');
             $('.p_t1').fadeIn();
+            load_ui = res;
+            Lockr.set('load_ui', load_ui);
             // load_location_ui();
         })
         .fail(function(err) {
