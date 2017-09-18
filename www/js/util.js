@@ -102,7 +102,7 @@ function download_image(){
                     }
             });
 
-            // console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
+            console.log(cordova.file.dataDirectory + 'files/download/'+value.icon);
             counter_i = counter_i + 1;
             animate_count = animate_count + animate_counter;
             // console.log("Index value: "+index);

@@ -117,7 +117,7 @@ myApp.onPageInit('mall_facts', function (page) {
     $(".mall_id_floor_"+mall_id).show();
     $(".slider_box_floor_1").show();
 
-    $('.single-item, .event_inner_slider').slick();
+    $('.single-item, .event_inner_slider, slider-nav, .slider-for').slick();
 
     $(".click_menu_sub").click(function(){
         $(".menu_i, .menu_p, .menu_sub").removeClass('menu_active');
@@ -271,6 +271,8 @@ myApp.onPageInit('mall_facts', function (page) {
 
         // Pictures Section
         if (data_disp_id == '#pictures_page_dynamic') {
+            $('.slider-nav').slick('unslick');
+            $('.slider-for').slick('unslick');
             $(".pictures_malls_hide").hide();
             $(".pictures_malls_"+mall_id).show();
             $('.slider-for').slick({
